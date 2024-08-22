@@ -1,0 +1,14 @@
+{
+    "name": "fruits-app",
+    "version": "1.0.0",
+    "description": "NodeJS app to fetch fruits from MongoDB",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "mongodb": "^4.1.0"
+    }
+  }
+  
