@@ -1,0 +1,139 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.5",
+  "serial": 697,
+  "lineage": "2ae4f464-7f1a-e04f-ddfc-1304325ce1c6",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "nodejs_app",
+      "provider": "provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "atomic": false,
+            "chart": "./nodejs-helm-chart",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "nodejs-app",
+            "keyring": null,
+            "lint": false,
+            "manifest": null,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "1.0.0",
+                "chart": "nodejs-app",
+                "first_deployed": 1724669598,
+                "last_deployed": 1724670936,
+                "name": "nodejs-app",
+                "namespace": "default",
+                "notes": "",
+                "revision": 2,
+                "values": "{\"env\":[{\"name\":\"MONGODB_URL\",\"value\":\"mongodb://mongodb.default.svc.cluster.local:27017/fruitsdb\"}],\"image\":{\"repository\":\"idan5567/nodejs-app\",\"tag\":\"latest\"},\"replicaCount\":2,\"service\":{\"type\":\"LoadBalancer\"}}",
+                "version": "1.0.0"
+              }
+            ],
+            "name": "nodejs-app",
+            "namespace": "default",
+            "pass_credentials": false,
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": null,
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [
+              {
+                "name": "env[0].name",
+                "type": "",
+                "value": "MONGODB_URL"
+              },
+              {
+                "name": "env[0].value",
+                "type": "",
+                "value": "mongodb://mongodb.default.svc.cluster.local:27017/fruitsdb"
+              },
+              {
+                "name": "image.repository",
+                "type": "",
+                "value": "idan5567/nodejs-app"
+              },
+              {
+                "name": "image.tag",
+                "type": "",
+                "value": "latest"
+              },
+              {
+                "name": "replicaCount",
+                "type": "",
+                "value": "2"
+              },
+              {
+                "name": "service.type",
+                "type": "",
+                "value": "LoadBalancer"
+              }
+            ],
+            "set_list": [],
+            "set_sensitive": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "upgrade_install": null,
+            "values": null,
+            "verify": false,
+            "version": "1.0.0",
+            "wait": true,
+            "wait_for_jobs": false
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "repository_password"
+              }
+            ]
+          ],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": [
+    {
+      "object_kind": "var",
+      "config_addr": "module.eks.module.self_managed_node_group.var.platform",
+      "status": "unknown",
+      "objects": null
+    },
+    {
+      "object_kind": "resource",
+      "config_addr": "module.eks.module.self_managed_node_group.module.user_data.null_resource.validate_cluster_service_cidr",
+      "status": "unknown",
+      "objects": null
+    },
+    {
+      "object_kind": "resource",
+      "config_addr": "module.eks.module.eks_managed_node_group.module.user_data.null_resource.validate_cluster_service_cidr",
+      "status": "unknown",
+      "objects": null
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+apiVersion: v2
+name: nodejs-app  # Name of your application
+description: A Helm chart for deploying a NodeJS application
+
+# Version of the chart itself (not the application version)
+version: 1.0.0
+
+# App version, typically synchronized with the app's version (e.g., from package.json)
+appVersion: 1.0.0

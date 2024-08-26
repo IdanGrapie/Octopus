@@ -1,0 +1,9 @@
+apiVersion: v2
+name: mongodb  # Name of the chart
+description: A Helm chart for deploying MongoDB
+
+# The version of the chart
+version: 1.0.0
+
+# App version (the MongoDB version in this case)
+appVersion: "4.2"

@@ -1,0 +1,47 @@
+version: 2.1  # Use CircleCI 2.1 config version
+
+jobs:
+  # Job 1: The build job that installs dependencies and runs tests
+  build:
+    docker:
+      - image: circleci/node:16  # Use Node.js 16 as the environment for this job
+    steps:
+      - checkout  # Check out the source code from your GitHub repository
+      - setup_remote_docker  # Set up Docker to allow running Docker commands within CircleCI
+      - run:
+          name: Install Dependencies  # Step to install Node.js dependencies
+          command: |
+            cd nodejs  
+          # Install the necessary Node.js dependencies (including Jest for testing)
+            npm install  
+          
+      - run:
+          name: Run Tests  # Step to run Jest tests
+          command: |
+            cd nodejs  
+            npm test  
+
+  # Job 2: Build and push Docker images
+  build_and_push_docker:
+    docker:
+      - image: circleci/node:16  # Use the same Node.js image for consistency
+    steps:
+      - checkout  # Check out the source code from your GitHub repository
+      - setup_remote_docker  # Set up Docker environment to build and push Docker images
+      - run:
+          name: Build Docker Images  
+          command: |
+            docker-compose build  
+      - run:
+          name: Push Docker Image 
+          command: |
+            docker tag octopus-circleci:latest idan5567/octopus-circleci:latest 
+            docker push idan5567/octopus-circleci:latest 
+
+# Define the workflow that ties everything together
+workflows:
+  version: 2  
+  test_and_build:
+    jobs:
+      - build  # Run the build job (install dependencies and run tests)
+      - build_and_push_docker  # Run the job to build and push Docker images (can be run after tests succeed)

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}  # Use the chart name
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}  # Number of replicas defined in values.yaml
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}-container
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"  # Image details from values.yaml
+        ports:
+        - containerPort: 3000  # Expose the NodeJS app on port 3000
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
+        # Add the environment variables section
+        env:
+        {{- if .Values.env }}
+        {{- range .Values.env }}
+          - name: "{{ .name }}"
+            value: "{{ .value }}"
+        {{- end }}
+        {{- end }}

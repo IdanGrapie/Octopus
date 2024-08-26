@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    app: mongodb
+spec:
+  ports:
+    - port: {{ .Values.service.port }}  # MongoDB service port from values.yaml
+      targetPort: 27017  # Match the internal container port (MongoDB default)
+  selector:
+    app: mongodb
+  type: {{ .Values.service.type }}  # Service type (ClusterIP by default, can be LoadBalancer)

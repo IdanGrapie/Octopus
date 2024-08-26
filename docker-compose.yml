@@ -17,6 +17,8 @@ services:
       - "3000:3000"  # Expose NodeJS app port
     depends_on:
       - mongodb  # Make sure MongoDB starts first
+    environment:
+      MONGODB_URL: mongodb://mongodb:27017  # Set MongoDB connection URL as an environment variable
     networks:
       - app-network
 

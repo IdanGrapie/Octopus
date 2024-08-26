@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Chart.Name }}-service
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  type: {{ .Values.service.type }}  # Service type defined in values.yaml (LoadBalancer in this case)
+  ports:
+  - port: {{ .Values.service.port }}  # Port exposed by the LoadBalancer (e.g., 80)
+    targetPort: 3000  # Port the app is running on inside the container (e.g., 3000 for NodeJS)
+  selector:
+    app: {{ .Chart.Name }}  # This connects the service to the pods defined in deployment.yaml
