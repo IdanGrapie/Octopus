@@ -1,5 +1,5 @@
 {
-    "name": "fruits-app",
+    "name": "fruits-app", 
     "version": "1.0.0",
     "description": "NodeJS app to fetch fruits from MongoDB",
     "main": "app.js",

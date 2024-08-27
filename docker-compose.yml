@@ -1,10 +1,9 @@
-version: '3'
 services:
   mongodb:
     image: mongo:7.0.14-rc0-jammy # Use the specific MongoDB image version
     container_name: mongodb
-    ports:
-      - "27017:27017"  # Expose MongoDB's default port
+#    ports: don't need to expose mongodb to the world!
+#      - "27017:27017"  
     volumes:
       - ./mongodb/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/ # Mount the init script
     networks:
