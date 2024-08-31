@@ -31,15 +31,6 @@ resource "helm_release" "nodejs_app" {
     value = "LoadBalancer"
   }
 
-  set {
-    name  = "env[0].name"
-    value = "MONGODB_URL"
-  }
-
-  set {
-    name  = "env[0].value"
-    value = "mongodb://mongodb.default.svc.cluster.local:27017/fruitsdb"
-  }
   lifecycle {
     ignore_changes = all
   }  
