@@ -4,6 +4,7 @@ metadata:
   name: {{ .Chart.Name }}  # Use the chart name
   labels:
     app: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}    
 spec:
   replicas: {{ .Values.replicaCount }}  # Number of replicas defined in values.yaml
   selector:

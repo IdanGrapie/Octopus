@@ -25,3 +25,5 @@ env:
 mongodb:
   image: mongo:4.2  # MongoDB Docker image
   port: 27017  # MongoDB service port
+
+namespace: "default"

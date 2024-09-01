@@ -9,8 +9,7 @@ resource "helm_release" "nodejs_app" {
 
   name       = "nodejs-app"
   chart      = "./nodejs-helm-chart"
-  namespace  = "default"
-
+ 
   set {
     name  = "image.repository"
     value = var.nodejs_image_repository
