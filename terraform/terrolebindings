@@ -1,0 +1,84 @@
+{
+    "EvaluationResults": [
+        {
+            "EvalActionName": "eks:*",
+            "EvalResourceName": "*",
+            "EvalDecision": "allowed",
+            "MatchedStatements": [
+                {
+                    "SourcePolicyId": "AdministratorAccess",
+                    "SourcePolicyType": "IAM Policy",
+                    "StartPosition": {
+                        "Line": 3,
+                        "Column": 17
+                    },
+                    "EndPosition": {
+                        "Line": 8,
+                        "Column": 6
+                    }
+                }
+            ],
+            "MissingContextValues": []
+        },
+        {
+            "EvalActionName": "ec2:*",
+            "EvalResourceName": "*",
+            "EvalDecision": "allowed",
+            "MatchedStatements": [
+                {
+                    "SourcePolicyId": "AdministratorAccess",
+                    "SourcePolicyType": "IAM Policy",
+                    "StartPosition": {
+                        "Line": 3,
+                        "Column": 17
+                    },
+                    "EndPosition": {
+                        "Line": 8,
+                        "Column": 6
+                    }
+                }
+            ],
+            "MissingContextValues": []
+        },
+        {
+            "EvalActionName": "s3:*",
+            "EvalResourceName": "*",
+            "EvalDecision": "allowed",
+            "MatchedStatements": [
+                {
+                    "SourcePolicyId": "AdministratorAccess",
+                    "SourcePolicyType": "IAM Policy",
+                    "StartPosition": {
+                        "Line": 3,
+                        "Column": 17
+                    },
+                    "EndPosition": {
+                        "Line": 8,
+                        "Column": 6
+                    }
+                }
+            ],
+            "MissingContextValues": []
+        },
+        {
+            "EvalActionName": "iam:*",
+            "EvalResourceName": "*",
+            "EvalDecision": "allowed",
+            "MatchedStatements": [
+                {
+                    "SourcePolicyId": "AdministratorAccess",
+                    "SourcePolicyType": "IAM Policy",
+                    "StartPosition": {
+                        "Line": 3,
+                        "Column": 17
+                    },
+                    "EndPosition": {
+                        "Line": 8,
+                        "Column": 6
+                    }
+                }
+            ],
+            "MissingContextValues": []
+        }
+    ]
+}

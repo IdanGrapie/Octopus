@@ -1,0 +1,24 @@
+replicaCount: 1  # Typically, MongoDB is run as a single instance unless you're setting up replication
+
+mongodb:  # Add this block for the MongoDB image settings
+  image: idan5567/mongodb  # Update to your custom image
+  tag: latest  # Use the tag you've uploaded
+  pullPolicy: Always  # Image pull policy for the Docker image
+
+service:
+  type: ClusterIP  # ClusterIP by default (you can expose it with LoadBalancer if needed)
+  port: 27017      # Default MongoDB port
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+
+# Persistence configuration (if you want to add persistent storage later)
+persistence:
+  enabled: false  # Disable by default (for testing/development)
+  accessMode: ReadWriteOnce
+  size: 1Gi

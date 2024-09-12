@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  labels:
+    app: mongodb
+spec:
+  replicas: {{ .Values.replicaCount }}  # Number of MongoDB replicas from values.yaml
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: "{{ .Values.mongodb.image }}:{{ .Values.mongodb.tag }}"  # Use the custom MongoDB image and tag from values.yaml
+          imagePullPolicy: "{{ .Values.mongodb.pullPolicy }}"  # Ensure image is always pulled
+
+          ports:
+          - containerPort: {{ .Values.service.port }}  # Expose MongoDB port from values.yaml
+
+          resources:  # Resource limits and requests from values.yaml
+            requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.resources.limits.cpu }}
+
+          volumeMounts:
+            - name: mongodb-storage
+              mountPath: /data/db  # MongoDB data directory (temporary storage for now)
+
+      volumes:
+        - name: mongodb-storage
+          emptyDir: {}  # Temporary storage (replace with PersistentVolume for production)
