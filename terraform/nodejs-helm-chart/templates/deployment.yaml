@@ -36,5 +36,3 @@ spec:
          
         {{- end }}
         {{- end }}
-        - name: MONGODB_URL
-          value: {{ .Values.env.mongodb_url | quote }}

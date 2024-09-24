@@ -1,7 +1,7 @@
 replicaCount: 2  # Number of replicas (pods) for the NodeJS app
 
 image:
-  repository: your-dockerhub-username/your-nodejs-image  # Docker image for the NodeJS app
+  repository: idan5567/nodejs-app  # Docker image for the NodeJS app
   tag: "latest"  # Tag to use for the image
   pullPolicy: IfNotPresent  # Image pull policy (can be Always, IfNotPresent, or Never)
 
